@@ -3,7 +3,7 @@ FROM alpine:3.14
 USER root
 
 RUN apk update
-RUN apk add sudo bash git curl strace unzip ripgrep htop jq make
+RUN apk add sudo bash git curl strace zip unzip ripgrep htop jq make
 RUN apk add bash-completion
 
 ENV LANG=en_US.UTF-8
