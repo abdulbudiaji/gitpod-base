@@ -3,14 +3,15 @@ FROM alpine:3.14
 USER root
 
 RUN apk update
-RUN apk add bash git curl strace unzip ripgrep htop jq make
+RUN apk add sudo bash git curl strace unzip ripgrep htop jq make
 RUN apk add bash-completion
 
 ENV LANG=en_US.UTF-8
 
 ### Gitpod user ###
 # '-l': see https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user
-RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod \
+RUN addgroup sudo
+RUN adduser -u 33333 -G sudo -h /home/gitpod -s /bin/bash -D gitpod \
     # passwordless sudo for users in the 'sudo' group
     && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
 ENV HOME=/home/gitpod
