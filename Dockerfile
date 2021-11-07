@@ -2,7 +2,7 @@ FROM alpine:3.14
 
 USER root
 
-RUN apk add update
+RUN apk update
 RUN apk add bash git curl strace unzip ripgrep htop jq make
 RUN apk add bash-completion
 
