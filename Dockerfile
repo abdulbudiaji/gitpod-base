@@ -1,4 +1,4 @@
 FROM gitpod/workspace-base
 
-RUN apt-get updatedd
+RUN apt-get update
 RUN apt-get install -y strace
