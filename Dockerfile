@@ -8,7 +8,6 @@ RUN apt-get install -y sudo git curl strace zip unzip htop jq make
 ENV LANG=en_US.UTF-8
 ### Gitpod user ###
 # '-l': see https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user
-RUN groupadd sudo
 RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod
 # passwordless sudo for users in the 'sudo' group
 RUN echo '%sudo ALL=NOPASSWD:ALL' > /etc/sudoers.d/gitpod
