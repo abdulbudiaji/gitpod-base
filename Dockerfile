@@ -4,6 +4,7 @@ USER root
 
 RUN apt-get update
 RUN apt-get install -y sudo wget gnupg netcat locales git curl strace zip unzip htop jq make
+RUN apt-get install -y build-essential
 
 RUN sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen
 RUN locale-gen
