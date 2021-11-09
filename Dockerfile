@@ -3,7 +3,7 @@ FROM debian:stretch-slim
 USER root
 
 RUN apt-get update
-RUN apt-get install -y sudo git curl strace zip unzip htop jq make
+RUN apt-get install -y sudo wget gnupg git curl strace zip unzip htop jq make
 
 ENV LANG=en_US.UTF-8
 ### Gitpod user ###
