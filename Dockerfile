@@ -3,9 +3,14 @@ FROM debian:stretch-slim
 USER root
 
 RUN apt-get update
-RUN apt-get install -y sudo wget gnupg git curl strace zip unzip htop jq make
+RUN apt-get install -y sudo wget gnupg netcat locales git curl strace zip unzip htop jq make
 
+RUN sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen
+RUN locale-gen
 ENV LANG=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
+ENV LANGUAGE=en_US.UTF-8
+
 ### Gitpod user ###
 # '-l': see https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user
 RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod
