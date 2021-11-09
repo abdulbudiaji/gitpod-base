@@ -23,6 +23,6 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/gitpod-base:ubuntu-20.04
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/gitpod-base:debian-stretch-slim
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
